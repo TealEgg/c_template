@@ -1,6 +1,8 @@
 BUILD_DIR := build
 SRC_DIR := src
 
+# TODO: perhaps add a test dir
+
 EXEC := name.exe
 CC := gcc
 # flags for c preprocessor
