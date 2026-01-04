@@ -26,8 +26,11 @@ OBJECTS := $(SRC:$(SRC_DIR)/%.c=$(BUILD_DIR)/%.o)
 $(BUILD_DIR)/$(EXEC): $(OBJECTS)
 	$(CC) $^ $(CPPFLAGS) $(CFLAGS) $(LDFLAGS) $(LDLIBS) -o $@
 
-$(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
+$(BUILD_DIR)/%.o: $(SRC_DIR)/%.c | $(BUILD_DIR)
 	$(CC) -c $(CPPFLAGS) $(CFLAGS) $(LDFLAGS) $(LDLIBS) $< -o $@
+
+$(BUILD_DIR):
+	mkdir $(BUILD_DIR)
 
 .PHONY: clean run
 
